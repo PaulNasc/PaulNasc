@@ -4,7 +4,7 @@
 [![Blog](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](https://mail.google.com/mail/u/0/#inbox?compose=new)
 
 
-![Paulo's GitHub stats](https://github-readme-stats.vercel.app/api?username=PaulNasc&show_icons=true&theme=onedark)
+![Status GitHub Paulo](https://github-readme-stats.vercel.app/api?username=PaulNasc&show_icons=true&theme=onedark)
 
 ## Tecnologias que estudo no dia a dia.
 <div stle="display: inline_block"><br/>
