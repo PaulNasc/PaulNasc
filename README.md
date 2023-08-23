@@ -4,7 +4,7 @@
 [![Blog](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](https://mail.google.com/mail/u/0/#inbox?compose=new)
 
 
-![Paulo's GitHub stats](https://github-readme-stats.vercel.app/api?username=PaulNasc&show_icons=true&theme=radical)
+![Paulo's GitHub stats](https://github-readme-stats.vercel.app/api?username=PaulNasc&show_icons=true&theme=dracula)
 
 
 📚 Estudante de Análise e Desenvolvimento de Sistemas no 5º semestre |
