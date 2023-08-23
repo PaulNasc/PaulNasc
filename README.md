@@ -1,6 +1,8 @@
 ###Olá me chamo Paulo 👋
 
 [![Blog](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/paulo-nascimento23/)
+
+
 📚 Estudante de Análise e Desenvolvimento de Sistemas no 5º semestre |
 💻 Apaixonado por programação e tecnologia |
 🌆 25 anos de Guarulhos, SP |
