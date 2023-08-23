@@ -16,6 +16,7 @@
 
 
 
+
 📚 Estudante de Análise e Desenvolvimento de Sistemas no 5º semestre |
 💻 Apaixonado por programação e tecnologia |
 🌆 25 anos de Guarulhos, SP |
