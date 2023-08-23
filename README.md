@@ -6,6 +6,11 @@
 
 ![Paulo's GitHub stats](https://github-readme-stats.vercel.app/api?username=PaulNasc&show_icons=true&theme=onedark)
 
+## Tecnologias que estudo no dia a dia.
+<div stle="display: inline_block"><br/>
+  <img align="center" alt="html5" src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white" />
+</div>
+
 
 📚 Estudante de Análise e Desenvolvimento de Sistemas no 5º semestre |
 💻 Apaixonado por programação e tecnologia |
