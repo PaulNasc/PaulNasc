@@ -103,7 +103,9 @@ async function verifyUrls(urls) {
         const isSvgUrl =
           contentType.includes('image/svg+xml') ||
           url.includes('demolab.com') ||
-          url.includes('vercel.app') ||
+          url.includes('capsule-render.vercel.app') ||
+          url.includes('github-readme-stats.vercel.app') ||
+          url.includes('github-readme-activity-graph.vercel.app') ||
           url.includes('shields.io') ||
           url.includes('komarev.com') ||
           url.endsWith('.svg');
@@ -214,7 +216,10 @@ async function main() {
 
   // 1. Required pt-BR content & anti-placeholder checks
   assert(/QA na HYBEX/i.test(readme), 'Missing current role "QA na HYBEX"');
-  assert(/NEXUS/i.test(readme), 'Missing NEXUS ecosystem details');
+  assert(/Nexus TCMS/i.test(readme), 'Missing Nexus TCMS details');
+  assert(/Nexus HUB/i.test(readme), 'Missing Nexus HUB details');
+  assert(/Nexus Workspace/i.test(readme), 'Missing Nexus Workspace details');
+  assert(/https:\/\/nexus-tcms-site\.vercel\.app/i.test(readme), 'Missing Nexus TCMS landing page URL');
   assert(/Tauri/i.test(readme) && /Electron/i.test(readme), 'Missing NEXUS desktop stack details (Tauri/Electron)');
   assert(/Supabase/i.test(readme) && /Cloudflare R2/i.test(readme), 'Missing NEXUS cloud architecture details');
   assert(/Guarulhos/i.test(readme), 'Missing location Guarulhos');

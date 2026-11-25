@@ -11,19 +11,20 @@ const OWNER = process.env.GITHUB_OWNER || 'PaulNasc';
 const START_MARKER = '<!-- PROJECTS:START -->';
 const END_MARKER = '<!-- PROJECTS:END -->';
 
-const FALLBACK_DESCRIPTIONS = {
-  'Dashboard-project':
-    'Interface de dashboard web interativo desenvolvido com HTML5, CSS3 e JavaScript.',
-  controle_estoque:
-    'Aplicação desktop em Python integrada a banco de dados SQL para controle de estoque.',
-  instagram:
-    'Interface web inspirada na página inicial do Instagram para prática de HTML5 e CSS3.',
+const CURATED_SUMMARIES = {
+  nexus: 'Workspace desktop minimalista de tarefas, notas e foco',
+  gostate: 'Orquestração visual e execução distribuída de testes E2E',
+  'Dashboard-project': 'Dashboard web interativo e responsivo',
+  controle_estoque: 'Sistema desktop de controle de estoque integrado a SQL',
+  instagram: 'Recriação responsiva da interface inicial do Instagram',
 };
 
-const CATEGORY_MAP = {
-  nexus: 'Ecossistema / Desktop',
-  gostate: 'QA & Automação E2E',
-  controle_estoque: 'Estudos / Desktop',
+const CURATED_TAGS = {
+  nexus: '`Tauri v2` · `React` · `TypeScript`',
+  gostate: '`Playwright` · `React` · `Socket.IO`',
+  'Dashboard-project': '`HTML5` · `CSS3` · `JavaScript`',
+  controle_estoque: '`Python` · `SQL` · `Desktop`',
+  instagram: '`HTML5` · `CSS3`',
 };
 
 function sanitizeCell(value) {
@@ -82,29 +83,38 @@ async function fetchOwnedPublicRepos(owner) {
     .sort((a, b) => new Date(b.pushed_at).getTime() - new Date(a.pushed_at).getTime());
 }
 
+function buildTagsForRepo(repo) {
+  if (CURATED_TAGS[repo.name]) {
+    return CURATED_TAGS[repo.name];
+  }
+  const topics = Array.isArray(repo.topics) ? repo.topics.slice(0, 3) : [];
+  if (topics.length > 0) {
+    return topics.map((t) => `\`${sanitizeCell(t)}\``).join(' · ');
+  }
+  return `\`${sanitizeCell(repo.language || 'Web')}\``;
+}
+
 function buildProjectsTable(repos) {
   if (repos.length === 0) {
     return '_Nenhum repositório público encontrado no momento._';
   }
 
   const header = [
-    '| Repositório | Categoria | Descrição | Stack | Atualizado em | Stars |',
-    '| :--- | :--- | :--- | :---: | :---: | :---: |',
+    '| Repositório | Resumo | Tags | Atualizado |',
+    '| :--- | :--- | :--- | :---: |',
   ];
 
   const rows = repos.map((repo) => {
     const nameLink = `[**${sanitizeCell(repo.name)}**](${repo.html_url})`;
-    const category = CATEGORY_MAP[repo.name] || 'Estudos / Web';
-    const description = sanitizeCell(
-      FALLBACK_DESCRIPTIONS[repo.name] ||
+    const summary = sanitizeCell(
+      CURATED_SUMMARIES[repo.name] ||
         repo.description ||
-        `Repositório público desenvolvido com ${repo.language || 'tecnologias web'}.`
+        `Projeto desenvolvido com ${repo.language || 'tecnologias web'}`
     );
-    const language = sanitizeCell(repo.language || 'Web');
+    const tags = buildTagsForRepo(repo);
     const updated = formatDatePtBr(repo.pushed_at);
-    const stars = Number(repo.stargazers_count) || 0;
 
-    return `| ${nameLink} | ${category} | ${description} | \`${language}\` | ${updated} | ⭐ ${stars} |`;
+    return `| ${nameLink} | ${summary} | ${tags} | ${updated} |`;
   });
 
   return [...header, ...rows].join('\n');
